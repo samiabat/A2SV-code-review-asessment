@@ -1,4 +1,5 @@
 class CheckParenthesis:
+    # define a function to check valid parentesis
     def validParenthesis(s):
         stack = []
         brackets = { '(': ')',
@@ -6,15 +7,20 @@ class CheckParenthesis:
                      '[': ']' }
 
         for bracket in s:
-            if bracket in brackets.keys(): stack.append(bracket)
+            # keys are open brackets
+            if bracket in brackets.keys(): 
+                stack.append(bracket)
             else:
+                # close bracket is coming wihout openning bracket 
+                # we will return
                 if len(stack) == 0:
                     return False
-
+                # remove the openning
                 deleted = stack.pop()
+                # if they are not matched we will return False
                 if brackets[deleted] != bracket:
                     return False
-
+        # to be valid it should match
         if len(stack) != 0:
             return False
 
@@ -46,6 +52,7 @@ class UseFulOperations:
         return self.pi * radius ** 2
 
     def divide_numbers(self, a, b):
+        # remove division by zero.
         assert b != 0
         return a / b
 
