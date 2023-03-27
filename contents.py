@@ -1,22 +1,20 @@
-# add your contents here
-def is_valid_parenthesis(s):
-    dc = {
-        '(': ')',
-          "{": "}",
-         '[': ']'
 
-    }
+def validParenthesis(s):
     stack = []
-    for i in s:
-        if i in dc.keys(): stack.append(i)
+    brackets = { '(': ')',
+                 "{": "}",
+                 '[': ']' }
+    
+    for bracket in s:
+        if bracket in brackets.keys(): stack.append(bracket)
         else:
             if len(stack) == 0:
                 return False
             
-
-            op = stack.pop()
-            if dc[op] != i:
+            deleted = stack.pop()
+            if brackets[deleted] != bracket:
                 return False
+            
     if len(stack) != 0:
         return False
     
