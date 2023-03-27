@@ -1,4 +1,4 @@
-Class CheckParenthesis:
+class CheckParenthesis:
     def validParenthesis(s):
         stack = []
         brackets = { '(': ')',
